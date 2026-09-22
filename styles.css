@@ -435,9 +435,7 @@ label {
 .week-planner {
   grid-template-columns: repeat(7, minmax(190px, 1fr));
   max-width: 100%;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   padding-bottom: 4px;
 }
 
@@ -598,11 +596,13 @@ label {
   }
 
   .week-planner {
-    grid-template-columns: repeat(7, minmax(78vw, 78vw));
-    padding-bottom: 8px;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+    padding-bottom: 0;
   }
 
   .day-card {
     min-width: 0;
+    width: 100%;
   }
 }
