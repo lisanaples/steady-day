@@ -1,17 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Steady Day">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Steady Day sunburst">
   <defs>
-    <linearGradient id="rainbow" x1="56" x2="456" y1="72" y2="440" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#facc15"/>
-      <stop offset="0.3" stop-color="#fb923c"/>
-      <stop offset="0.55" stop-color="#ec4899"/>
-      <stop offset="0.78" stop-color="#7c3aed"/>
-      <stop offset="1" stop-color="#38bdf8"/>
+    <radialGradient id="glow" cx="50%" cy="96%" r="92%">
+      <stop offset="0" stop-color="#fffef3"/>
+      <stop offset="0.18" stop-color="#fff4b8"/>
+      <stop offset="0.55" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </radialGradient>
+    <linearGradient id="softRay" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff1a8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#fffbea" stop-opacity="0.98"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#rainbow)"/>
-  <circle cx="256" cy="256" r="156" fill="#fffaff"/>
-  <path d="M155 292c75 0 148-39 195-113 10 84-41 168-122 193-39 12-79 7-114-10 31-5 52-28 41-70Z" fill="#22c55e"/>
-  <path d="M194 224c42-40 91-55 148-45-50 25-93 61-128 108" fill="none" stroke="#7c3aed" stroke-width="22" stroke-linecap="round"/>
-  <path d="M154 356c48 28 134 28 204-54" fill="none" stroke="#ec4899" stroke-width="22" stroke-linecap="round"/>
-  <circle cx="350" cy="173" r="24" fill="#facc15"/>
+  <rect width="512" height="512" rx="96" fill="url(#glow)"/>
+  <g fill="url(#softRay)" opacity="0.72">
+    <path d="M256 500 0 420V304Z"/>
+    <path d="M256 500 28 238 80 178Z"/>
+    <path d="M256 500 102 116 174 82Z"/>
+    <path d="M256 500 220 48h72Z"/>
+    <path d="M256 500 338 82l72 34Z"/>
+    <path d="M256 500 432 178l52 60Z"/>
+    <path d="M256 500 512 304v116Z"/>
+  </g>
+  <g fill="#f59e0b" opacity="0.34">
+    <path d="M256 500 0 512v-78Z"/>
+    <path d="M256 500 58 512l96-312Z"/>
+    <path d="M256 500 206 512l20-464Z"/>
+    <path d="M256 500 306 512 286 48Z"/>
+    <path d="M256 500 454 512 358 200Z"/>
+    <path d="M256 500 512 434v78Z"/>
+  </g>
+  <ellipse cx="256" cy="512" rx="168" ry="58" fill="#fffef3" opacity="0.86"/>
+  <path d="M42 438c64 30 134 45 214 45s150-15 214-45" fill="none" stroke="#fff8d6" stroke-width="22" stroke-linecap="round" opacity="0.56"/>
 </svg>

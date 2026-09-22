@@ -659,6 +659,9 @@ function buildGroceryList() {
 }
 
 function autoPlanWeek() {
+  if (document.activeElement && typeof document.activeElement.blur === "function") {
+    document.activeElement.blur();
+  }
   const breakfasts = IDEAS.filter((idea) => idea.type === "breakfast").map((idea) => idea.name);
   const lunches = IDEAS.filter((idea) => idea.type === "lunch").map((idea) => idea.name);
   const dinners = IDEAS.filter((idea) => idea.type === "dinner").map((idea) => idea.name);
@@ -674,6 +677,8 @@ function autoPlanWeek() {
   currentHabits().plan = true;
   saveData();
   renderAll();
+  document.querySelector("#weekPlanner").scrollLeft = 0;
+  window.scrollTo({ top: 0, behavior: "smooth" });
   showToast("Week planned. Edit anything you want to change.");
 }
 

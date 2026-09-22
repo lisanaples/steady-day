@@ -1,9 +1,9 @@
-const CACHE_NAME = "steady-day-v9";
+const CACHE_NAME = "steady-day-v13";
 const APP_SHELL = [
   "./",
   "index.html",
-  "styles.css?v=9",
-  "app.js?v=9",
+  "styles.css?v=13",
+  "app.js?v=13",
   "manifest.webmanifest",
   "assets/steady-day-icon.svg"
 ];

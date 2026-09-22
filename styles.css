@@ -22,6 +22,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 12%, rgba(250, 204, 21, 0.36), transparent 25%),
     radial-gradient(circle at 86% 10%, rgba(56, 189, 248, 0.32), transparent 26%),
@@ -123,6 +124,7 @@ button {
 .main {
   min-width: 0;
   padding: 28px;
+  max-width: 100vw;
 }
 
 .topbar,
@@ -276,12 +278,14 @@ input,
 select,
 textarea {
   width: 100%;
+  max-width: 100%;
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 9px 10px;
   background: white;
   color: var(--ink);
+  font-size: 16px;
 }
 
 textarea {
@@ -429,13 +433,16 @@ label {
 }
 
 .week-planner {
-  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  grid-template-columns: repeat(7, minmax(190px, 1fr));
+  max-width: 100%;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
 }
 
 .day-card {
-  min-width: 160px;
+  min-width: 190px;
   padding: 12px;
 }
 
@@ -568,6 +575,8 @@ label {
 @media (max-width: 640px) {
   .main {
     padding: 16px;
+    width: 100%;
+    max-width: 100vw;
   }
 
   .topbar,
@@ -586,5 +595,14 @@ label {
 
   .nav-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .week-planner {
+    grid-template-columns: repeat(7, minmax(78vw, 78vw));
+    padding-bottom: 8px;
+  }
+
+  .day-card {
+    min-width: 0;
   }
 }
