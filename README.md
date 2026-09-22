@@ -1,31 +1,23 @@
-# Closing Desk Prototype
+# Steady Day
 
-A browser-based real estate transaction tracker prototype for buyers, listings, deadlines, checklists, post-closing tasks, referrals, and Supabase-backed shared data.
+A personal wellness prototype for planning meals, tracking movement, supporting blood-sugar-friendly habits, and earning fun-dollar rewards.
 
-## Files
+## First version
 
-- `index.html` - app markup
-- `styles.css` - app styling
-- `app.js` - app behavior and Supabase sync
-- `manifest.webmanifest` - installable app settings
-- `service-worker.js` - install/offline support
-- `assets/` - app icons and images
-- `supabase-setup.sql` - one-time Supabase table and policy setup
+- Daily habit and mindset check-in
+- Editable weekly meal planner with one-click auto-planning
+- Expanded meal/snack suggestion library with Add to plan buttons
+- Default smoothie lunch and steel-cut oats breakfast portion notes
+- Grocery list builder
+- Moosewood-inspired and Dr. Hyman-inspired meal/snack suggestion style
+- Movement tracker for yoga, vibration plate, weights, weight bench, treadmill, dog walks, and other movement
+- Fun-dollar rewards
+- Clothes-fit check-ins and weekly progress dashboard
+- Anxiety, craving, trigger, and reset-tool tracking for emotional eating patterns
+- Local saving plus export/import backup
 
-## Local Preview
+## Branding note
 
-Serve this folder with a static web server, then open the local URL in a browser.
+This app is Steady Day and does not use a Closing Desk-style login page. If a hosted version shows Closing Desk branding or a sign-in screen, the wrong project/files were deployed or the browser is showing an old cached version.
 
-## Workspace Database
-
-The app connects to Supabase using the public project URL and publishable key in `app.js`. Run `supabase-setup.sql` in the Supabase SQL Editor before signing in and uploading local data.
-
-The SQL setup creates private workspaces. Each signed-in user gets a default workspace, and transaction rows are limited to users who belong to that workspace.
-
-To add a team member with their own private workspace, invite them from Supabase Authentication -> Users. When they accept the invite, Closing Desk shows a password setup form and creates a separate empty workspace for that account.
-
-If Supabase signups are enabled, users can also create their own account from the Closing Desk sign-in panel. Each account gets a separate private workspace.
-
-## Installable App
-
-After deploying the app online, open the live URL in Safari on iPhone and use Share -> Add to Home Screen. On desktop Chrome, use the browser's install option when available.
+This is a personal planning prototype, not medical advice. Use your own clinician's guidance for blood sugar, weight loss, medications, or nutrition targets.

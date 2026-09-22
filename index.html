@@ -1,1093 +1,402 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Closing Desk</title>
-    <meta name="theme-color" content="#123849" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steady Day</title>
+    <meta name="description" content="Steady Day is a personal meal, movement, mindset, and rewards planner." />
+    <meta name="theme-color" content="#7c3aed" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Closing Desk" />
+    <meta name="apple-mobile-web-app-title" content="Steady Day" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta property="og:title" content="Steady Day" />
+    <meta property="og:description" content="A bright personal planner for meals, movement, mindset, and fun-dollar rewards." />
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles.css?v=80" />
+    <link rel="icon" type="image/svg+xml" href="assets/steady-day-icon.svg" />
+    <link rel="apple-touch-icon" href="assets/steady-day-icon.svg" />
+    <link rel="stylesheet" href="styles.css?v=9" />
   </head>
   <body>
-    <svg class="icon-sprite" aria-hidden="true">
-      <symbol id="icon-house" viewBox="0 0 24 24">
-        <path d="M3 11.5 12 4l9 7.5" />
-        <path d="M5.5 10.5V20h13v-9.5" />
-        <path d="M9.5 20v-6h5v6" />
-      </symbol>
-      <symbol id="icon-key" viewBox="0 0 24 24">
-        <circle cx="8" cy="8" r="4" />
-        <path d="m11 11 9 9" />
-        <path d="m16 16 2-2" />
-        <path d="m18.5 18.5 2-2" />
-      </symbol>
-      <symbol id="icon-key-horizontal" viewBox="0 0 96 40">
-        <circle cx="18" cy="20" r="13" />
-        <circle cx="18" cy="20" r="5" />
-        <path d="M31 20h51" />
-        <path d="M55 20v8h9v-8" />
-        <path d="M70 20v6h7v-6" />
-        <path d="M82 20v-8h7v8" />
-      </symbol>
-      <symbol id="icon-calendar" viewBox="0 0 24 24">
-        <path d="M7 3v4" />
-        <path d="M17 3v4" />
-        <path d="M4.5 8h15" />
-        <rect x="4.5" y="5" width="15" height="15" rx="2" />
-      </symbol>
-      <symbol id="icon-briefcase" viewBox="0 0 24 24">
-        <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" />
-        <rect x="4" y="6" width="16" height="14" rx="2" />
-        <path d="M4 12h16" />
-        <path d="M10 12v2h4v-2" />
-      </symbol>
-      <symbol id="icon-contacts" viewBox="0 0 24 24">
-        <circle cx="9" cy="8" r="3.5" />
-        <path d="M3.5 20a5.5 5.5 0 0 1 11 0" />
-        <path d="M16 6.5a3 3 0 0 1 0 5.8" />
-        <path d="M17 15.5a4.5 4.5 0 0 1 3.5 4.5" />
-      </symbol>
-      <symbol id="icon-plus" viewBox="0 0 24 24">
-        <path d="M12 5v14" />
-        <path d="M5 12h14" />
-      </symbol>
-      <symbol id="icon-export" viewBox="0 0 24 24">
-        <path d="M12 3v12" />
-        <path d="m7 8 5-5 5 5" />
-        <path d="M5 15v4h14v-4" />
-      </symbol>
-      <symbol id="icon-import" viewBox="0 0 24 24">
-        <path d="M12 3v12" />
-        <path d="m7 10 5 5 5-5" />
-        <path d="M5 19h14" />
-      </symbol>
-    </svg>
-    <section class="login-screen" id="loginScreen" hidden>
-      <div class="login-card">
-        <div class="login-brand">
-          <img src="assets/app-icon-512.png" alt="" />
-          <div>
-            <span class="eyebrow">Closing Desk</span>
-            <h1>Sign in to continue</h1>
-            <p>Use your own account to open a private transaction workspace.</p>
-          </div>
-        </div>
-        <div class="login-form-slot" id="loginFormSlot"></div>
-      </div>
-    </section>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Main navigation">
+    <main class="app-shell">
+      <aside class="sidebar">
         <div class="brand">
-          <div class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-house"></use></svg></div>
+          <img src="assets/steady-day-icon.svg" alt="" />
           <div>
-            <strong>Closing Desk</strong>
-            <span>Transaction command center</span>
+            <strong>Steady Day</strong>
+            <span>Food, movement, rewards</span>
           </div>
         </div>
-
-        <nav class="nav-list">
-          <button class="nav-item active" type="button" data-view="dashboard"><svg class="icon" aria-hidden="true"><use href="#icon-house"></use></svg>Dashboard</button>
-          <button class="nav-item" type="button" data-view="transactions"><svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>Transactions</button>
-          <button class="nav-item" type="button" data-view="pipeline"><svg class="icon" aria-hidden="true"><use href="#icon-plus"></use></svg>Pipeline</button>
-          <button class="nav-item" type="button" data-view="deadlines"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Deadlines</button>
-          <button class="nav-item" type="button" data-view="contacts"><svg class="icon" aria-hidden="true"><use href="#icon-contacts"></use></svg>Contacts</button>
-          <button class="nav-item" type="button" data-view="reports"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Reports</button>
+        <nav class="nav-list" aria-label="App sections">
+          <button class="nav-item active" type="button" data-view="today">Today</button>
+          <button class="nav-item" type="button" data-view="mealPlan">Meal Plan</button>
+          <button class="nav-item" type="button" data-view="ideas">Suggestions</button>
+          <button class="nav-item" type="button" data-view="movement">Movement</button>
+          <button class="nav-item" type="button" data-view="mindset">Mindset</button>
+          <button class="nav-item" type="button" data-view="rewards">Rewards</button>
+          <button class="nav-item" type="button" data-view="progress">Progress</button>
         </nav>
-
-        <div class="sidebar-panel">
-          <svg class="sidebar-panel-icon" aria-hidden="true"><use href="#icon-key"></use></svg>
+        <section class="side-card">
           <span class="eyebrow">This week</span>
-          <strong id="sidebarDeadlineCount">0 key dates</strong>
-          <p>Keep closing steps, client updates, and partner follow-ups in one place.</p>
-        </div>
-        <button class="settings-link" type="button" id="openSettingsButton">Data settings</button>
+          <strong id="sideDollars">$0</strong>
+          <p>Fun dollars earned toward rewards.</p>
+        </section>
       </aside>
 
-      <main class="main">
+      <section class="main">
         <header class="topbar">
           <div>
-            <span class="eyebrow">Prototype</span>
-            <h1 class="page-title">
-              <span class="page-title-text">
-                <span>Closing</span>
-                <span>Desk</span>
-              </span>
-              <img class="title-key-photo" src="assets/app-icon-512.png" alt="" />
-            </h1>
+            <span class="eyebrow">Personal wellness planner</span>
+            <h1 id="viewTitle">Today</h1>
           </div>
           <div class="topbar-actions">
-            <label class="appearance-control">
-              Background
-              <select id="backgroundSelect">
-                <option value="classic">Classic</option>
-                <option value="editorial">Editorial</option>
-                <option value="clean">Clean</option>
-                <option value="coastal">Coastal</option>
-                <option value="warm">Warm</option>
-              </select>
-            </label>
-            <button class="primary-button" type="button" id="newTransactionButton">
-              <svg class="icon" aria-hidden="true"><use href="#icon-key"></use></svg>
-              New transaction
-            </button>
-            <button class="ghost-button" type="button" id="newPipelineButton">
-              <svg class="icon" aria-hidden="true"><use href="#icon-plus"></use></svg>
-              Add pipeline
-            </button>
+            <button class="ghost-button" type="button" id="exportButton">Export backup</button>
+            <label class="ghost-button file-button">Import backup<input id="importInput" type="file" accept="application/json" /></label>
           </div>
         </header>
 
-        <div class="sync-panel-home" id="syncPanelHome">
-        <section class="sync-panel" id="syncPanel">
-          <div>
-            <span class="eyebrow">Workspace sync</span>
-            <strong id="syncStatus">Local mode</strong>
-            <div class="sync-health" id="syncHealth">Not connected</div>
-            <div class="sync-details" id="syncDetails"></div>
-            <p id="syncHelp">Sign in to sync transactions to your private workspace.</p>
-          </div>
-          <form class="auth-form" id="authForm">
-            <input name="email" type="email" autocomplete="email" placeholder="Email" />
-            <input name="password" type="password" autocomplete="current-password" placeholder="Password" />
-            <button class="ghost-button" type="submit" data-auth-action="signin">Sign in</button>
-            <button class="primary-button sync-primary" type="submit" data-auth-action="signup">Create account</button>
-            <button class="text-button password-reset-button" type="button" id="resetPasswordButton">Forgot password?</button>
-          </form>
-          <form class="auth-form invite-form" id="inviteForm" hidden>
-            <input name="password" type="password" autocomplete="new-password" placeholder="Create password" />
-            <input name="confirmPassword" type="password" autocomplete="new-password" placeholder="Confirm password" />
-            <button class="primary-button sync-primary" type="submit">Set up account</button>
-          </form>
-          <div class="sync-actions" id="syncActions" hidden>
-            <button class="primary-button sync-primary" type="button" id="refreshCloudButton">Refresh</button>
-            <button class="ghost-button backup-sync-button" type="button" id="uploadLocalButton">Merge local backup</button>
-            <button class="ghost-button" type="button" id="signOutButton">Sign out</button>
-          </div>
-        </section>
-        </div>
-
-        <section class="view active" id="dashboardView">
-          <section class="panel calendar-panel">
-            <div class="panel-header">
-              <div>
-                <span class="eyebrow">This week</span>
-                <h2>Weekly Calendar</h2>
-                <p id="calendarWeekLabel"></p>
-              </div>
-              <div class="calendar-nav">
-                <button class="ghost-button" type="button" id="previousWeekButton">Previous</button>
-                <button class="ghost-button" type="button" id="currentWeekButton">This week</button>
-                <button class="ghost-button" type="button" id="nextWeekButton">Next</button>
-              </div>
-            </div>
-            <div class="weekly-calendar" id="weeklyCalendar"></div>
-          </section>
-
-          <section class="panel today-panel" id="todayPanel">
-            <div class="panel-header">
-              <div>
-                <span class="eyebrow">Today</span>
-                <h2>Action Needed</h2>
-                <p>Overdue, due today, and due this week</p>
-              </div>
-            </div>
-            <div class="today-board" id="todayBoard"></div>
-          </section>
-
-          <section class="panel" id="openChecklistPanel">
-            <div class="panel-header">
-              <div>
-                <span class="eyebrow">Checklist</span>
-                <h2>Open Checklist Items</h2>
-                <p>Click an item to open the transaction checklist</p>
-              </div>
-            </div>
-            <div class="open-checklist-list" id="openChecklistList"></div>
-          </section>
-
-          <section class="panel dashboard-controls">
+        <section class="view active" id="todayView">
+          <section class="hero-panel">
             <div>
-              <span class="eyebrow">Reporting range</span>
-              <h2>Closed Sales</h2>
+              <span class="eyebrow">Today</span>
+              <h2>Build the kind of day that supports steady blood sugar.</h2>
+              <p>Plan meals, move your body, and earn fun dollars for the actions that matter.</p>
             </div>
-            <div class="range-controls">
-              <label>Start <input id="closedRangeStart" type="date" /></label>
-              <label>End <input id="closedRangeEnd" type="date" /></label>
+            <div class="hero-score">
+              <strong id="todayScore">0%</strong>
+              <span>steady day score</span>
             </div>
           </section>
-          <div class="metric-grid" id="metricGrid"></div>
 
-          <div class="content-grid">
-            <section class="panel wide">
+          <section class="dashboard-grid">
+            <article class="panel">
               <div class="panel-header">
                 <div>
-                  <span class="eyebrow">Active pipeline</span>
-                  <h2>Current Transactions</h2>
+                  <span class="eyebrow">Daily check-in</span>
+                  <h3>Support habits</h3>
                 </div>
-                <button class="ghost-button" type="button" data-view-button="transactions">View all</button>
               </div>
-              <div class="dashboard-pipeline">
-                <section class="pipeline-column buyer-pending">
-                  <div class="pipeline-heading">
-                    <h3>Buyer Pending</h3>
-                    <span id="buyerPendingCount">0</span>
-                  </div>
-                  <div class="dashboard-tile-list" id="dashboardBuyerPending"></div>
-                </section>
-                <section class="pipeline-column listing-pending">
-                  <div class="pipeline-heading">
-                    <h3>Listing Pending</h3>
-                    <span id="listingPendingCount">0</span>
-                  </div>
-                  <div class="dashboard-tile-list" id="dashboardListingPending"></div>
-                </section>
-                <section class="pipeline-column listing-active">
-                  <div class="pipeline-heading">
-                    <h3>Active Listings</h3>
-                    <span id="activeListingCount">0</span>
-                  </div>
-                  <div class="dashboard-tile-list" id="dashboardActiveListings"></div>
-                </section>
-                <section class="pipeline-column listing-new">
-                  <div class="pipeline-heading">
-                    <h3>New / Upcoming</h3>
-                    <span id="newUpcomingListingCount">0</span>
-                  </div>
-                  <div class="dashboard-tile-list" id="dashboardNewUpcomingListings"></div>
-                </section>
-              </div>
-            </section>
+              <div class="habit-list" id="habitList"></div>
+            </article>
 
-            <section class="panel">
+            <article class="panel">
               <div class="panel-header">
                 <div>
-                  <span class="eyebrow">Priority</span>
-                  <h2>Upcoming Deadlines</h2>
+                  <span class="eyebrow">Planned meals</span>
+                  <h3>Today’s plate plan</h3>
                 </div>
               </div>
-              <div class="deadline-list" id="deadlineList"></div>
-            </section>
-          </div>
+              <div class="today-meals" id="todayMeals"></div>
+            </article>
 
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Quick movement</span>
+                  <h3>Log one thing</h3>
+                </div>
+              </div>
+              <form class="quick-form" id="quickMovementForm">
+                <select name="type">
+                  <option>Dog walk</option>
+                  <option>Treadmill</option>
+                  <option>Yoga</option>
+                  <option>Weights</option>
+                  <option>Weight bench</option>
+                  <option>Vibration plate</option>
+                  <option>Other movement</option>
+                </select>
+                <input name="minutes" type="number" min="1" placeholder="Minutes" />
+                <button class="primary-button" type="submit">Log movement</button>
+              </form>
+              <div class="mini-list" id="todayMovement"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Rewards</span>
+                  <h3>Fun dollars</h3>
+                </div>
+              </div>
+              <div class="money-card">
+                <strong id="funBalance">$0</strong>
+                <span>available this week</span>
+              </div>
+              <p class="muted">Earn for consistency, balanced meals, movement, and planning.</p>
+            </article>
+
+            <article class="panel wide-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Feelings check</span>
+                  <h3>Before food becomes the only tool</h3>
+                </div>
+                <button class="ghost-button" type="button" data-view-jump="mindset">Open Mindset</button>
+              </div>
+              <div class="pause-grid">
+                <div>
+                  <strong id="todayMoodSummary">No mindset check-in yet today.</strong>
+                  <p class="muted">Notice anxiety, cravings, and what might help for ten minutes.</p>
+                </div>
+                <div class="reset-list" id="quickResetList"></div>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <section class="view" id="mealPlanView">
           <section class="panel">
             <div class="panel-header">
               <div>
-                <span class="eyebrow">Settlement prep</span>
-                <h2>Coming Up This Week</h2>
-                <p>Settlement details, final walk-through, and utility reminders</p>
+                <span class="eyebrow">Meal planning</span>
+                <h2>Plan the week</h2>
+              </div>
+              <div class="button-row">
+                <button class="primary-button" type="button" id="autoPlanButton">Auto-plan week</button>
+                <button class="ghost-button" type="button" id="buildGroceryButton">Build grocery list</button>
               </div>
             </div>
-            <div class="update-strip" id="clientUpdates"></div>
+            <div class="planning-note">
+              <strong>Your default rhythm</strong>
+              <span>Breakfast leans oats/protein/fiber. Lunch uses your smoothie most days. Dinners rotate vegetable-forward, blood-sugar-steady ideas inspired by the cookbook styles you like. Every meal remains editable.</span>
+            </div>
+            <div class="week-planner" id="weekPlanner"></div>
           </section>
-        </section>
-
-        <section class="view" id="transactionsView">
-          <div class="section-tools">
-            <label class="search-field">
-              <span>Search</span>
-              <input id="transactionSearch" type="search" placeholder="Client, address, lender..." />
-            </label>
-            <div class="segmented-control" aria-label="Filter transactions">
-              <button class="segment active" type="button" data-filter="all">All</button>
-              <button class="segment" type="button" data-filter="Buyer">Buyer</button>
-              <button class="segment" type="button" data-filter="Listing">Listing</button>
-              <button class="segment" type="button" data-filter="closed">Closed Sales</button>
-            </div>
-          </div>
-          <div class="transaction-board" id="transactionBoard"></div>
-        </section>
-
-        <section class="view" id="pipelineView">
-          <section class="panel dashboard-controls">
-            <div>
-              <span class="eyebrow">Before contract</span>
-              <h2>Pipeline</h2>
-              <p>Scan priorities, follow-ups, and future business without digging through a long list.</p>
-            </div>
-            <button class="primary-button" type="button" id="addPipelineFromViewButton">Add pipeline item</button>
-          </section>
-          <section class="pipeline-workspace">
-            <div class="pipeline-tabs" role="tablist" aria-label="Pipeline type">
-              <button class="pipeline-tab active" type="button" data-pipeline-type="listing" role="tab" aria-selected="true">
-                Future Listings <span id="futureListingPipelineCount">0</span>
-              </button>
-              <button class="pipeline-tab" type="button" data-pipeline-type="buyer" role="tab" aria-selected="false">
-                Active Buyers <span id="activeBuyerPipelineCount">0</span>
-              </button>
-            </div>
-            <div class="pipeline-summary" id="pipelineSummary"></div>
-            <div class="pipeline-toolbar">
-              <label class="pipeline-search">
-                <span class="sr-only">Search pipeline</span>
-                <input id="pipelineSearch" type="search" placeholder="Search client, address, stage..." />
-              </label>
-              <label>
-                <span class="sr-only">Pipeline focus</span>
-                <select id="pipelineFocusFilter" aria-label="Choose pipeline focus">
-                  <option value="focus">Focus list</option>
-                  <option value="due">Follow-up due</option>
-                  <option value="next30">Next 30 days</option>
-                  <option value="no-date">No follow-up date</option>
-                  <option value="all">All pipeline items</option>
-                </select>
-              </label>
-              <label>
-                <span class="sr-only">Filter by priority</span>
-                <select id="pipelinePriorityFilter" aria-label="Filter pipeline by priority">
-                  <option value="all">All priorities</option>
-                  <option value="hot">Hot</option>
-                  <option value="warm">Warm</option>
-                  <option value="long-term">Long-term</option>
-                  <option value="uncertain">Uncertain</option>
-                </select>
-              </label>
-              <div class="pipeline-view-toggle" role="group" aria-label="Pipeline display">
-                <button class="active" type="button" data-pipeline-view="compact">Compact</button>
-                <button type="button" data-pipeline-view="cards">Cards</button>
-              </div>
-            </div>
-            <div class="pipeline-groups" id="pipelineGroups"></div>
-          </section>
-        </section>
-
-        <section class="view" id="deadlinesView">
           <section class="panel">
             <div class="panel-header">
               <div>
-                <span class="eyebrow">Calendar</span>
-                <h2>Deadline Timeline</h2>
+                <span class="eyebrow">Portion guide</span>
+                <h2>Smoothie and breakfast defaults</h2>
               </div>
             </div>
-            <div class="timeline" id="deadlineTimeline"></div>
+            <div class="guidance-grid" id="portionGuide"></div>
+          </section>
+          <section class="panel grocery-panel">
+            <div class="panel-header">
+              <div>
+                <span class="eyebrow">Shopping</span>
+                <h2>Grocery list</h2>
+              </div>
+              <button class="ghost-button" type="button" id="copyGroceryButton">Copy list</button>
+            </div>
+            <textarea id="groceryList" placeholder="Build a grocery list from your planned meals, or type your own."></textarea>
           </section>
         </section>
 
-        <section class="view" id="contactsView">
+        <section class="view" id="ideasView">
           <section class="panel">
             <div class="panel-header">
               <div>
-                <span class="eyebrow">People</span>
-                <h2>Transaction Contacts</h2>
+                <span class="eyebrow">Suggestions</span>
+                <h2>Meal and snack ideas</h2>
+              </div>
+              <div class="filter-row">
+                <select id="ideaFilter">
+                  <option value="all">All ideas</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="snack">Snack</option>
+                  <option value="quick">Quick</option>
+                  <option value="vegetarian">Vegetarian</option>
+                </select>
+                <select id="ideaPlanDate"></select>
+                <select id="ideaPlanMeal">
+                  <option>Breakfast</option>
+                  <option>Lunch</option>
+                  <option>Dinner</option>
+                  <option>Snack</option>
+                </select>
               </div>
             </div>
-            <div class="contact-directory" id="contactDirectory"></div>
+            <p class="muted">Choose a day and meal, then click Add to plan on any idea. Everything can still be edited in Meal Plan.</p>
+            <div class="idea-grid" id="ideaGrid"></div>
           </section>
         </section>
 
-        <section class="view" id="reportsView">
-          <section class="panel dashboard-controls">
-            <div>
-              <span class="eyebrow">Reports</span>
-              <h2>Sales Performance</h2>
-              <p>Closed and pending sales based on saved transaction data</p>
-            </div>
-            <div class="range-controls">
-              <label>Start <input id="reportRangeStart" type="date" /></label>
-              <label>End <input id="reportRangeEnd" type="date" /></label>
-            </div>
-          </section>
-          <div class="metric-grid report-metric-grid" id="reportMetricGrid"></div>
-          <div class="reports-grid">
-            <section class="panel report-panel">
-              <div class="panel-header">
-                <div>
-                  <span class="eyebrow">Closed</span>
-                  <h2>Closed Volume by Month</h2>
-                </div>
-              </div>
-              <div class="bar-chart" id="closedVolumeChart"></div>
-            </section>
-            <section class="panel report-panel">
-              <div class="panel-header">
-                <div>
-                  <span class="eyebrow">Pending</span>
-                  <h2>Pending Volume by Settlement Month</h2>
-                </div>
-              </div>
-              <div class="bar-chart" id="pendingVolumeChart"></div>
-            </section>
-            <section class="panel report-panel">
-              <div class="panel-header">
-                <div>
-                  <span class="eyebrow">Mix</span>
-                  <h2>Closed Buyer vs Listing</h2>
-                </div>
-              </div>
-              <div class="donut-report" id="closedSideChart"></div>
-            </section>
-            <section class="panel report-panel">
-              <div class="panel-header">
-                <div>
-                  <span class="eyebrow">Mix</span>
-                  <h2>Pending Buyer vs Listing</h2>
-                </div>
-              </div>
-              <div class="donut-report" id="pendingSideChart"></div>
-            </section>
-          </div>
-          <section class="panel action-report-panel" id="contractActionReport">
+        <section class="view" id="movementView">
+          <section class="panel">
             <div class="panel-header">
               <div>
-                <span class="eyebrow">Printable</span>
-                <h2>Contract Task Report</h2>
-                <p>Deadlines and needed tasks for active contracts and listings</p>
-              </div>
-              <button class="ghost-button" type="button" id="printActionReportButton">Print action report</button>
-            </div>
-            <div class="action-report-controls">
-              <div class="segmented-control" aria-label="Action report date preset">
-                <button class="segment active" type="button" data-action-report-range="week">This week</button>
-                <button class="segment" type="button" data-action-report-range="month">This month</button>
-                <button class="segment" type="button" data-action-report-range="custom">Date range</button>
-                <button class="segment" type="button" data-action-report-range="all">All dates</button>
-              </div>
-              <div class="range-controls action-report-date-controls">
-                <label>Start <input id="actionReportStart" type="date" /></label>
-                <label>End <input id="actionReportEnd" type="date" /></label>
+                <span class="eyebrow">Movement</span>
+                <h2>Fitness days</h2>
               </div>
             </div>
-            <div class="print-report-meta" id="actionReportMeta"></div>
-            <div class="action-report-summary" id="actionReportSummary"></div>
-            <div class="action-report-grid">
-              <section>
-                <h3>Deadlines</h3>
-                <div class="report-table-wrap">
-                  <table class="action-report-table">
-                    <thead>
-                      <tr>
-                        <th>Due date</th>
-                        <th>Item</th>
-                        <th>Transaction</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="actionReportDeadlines"></tbody>
-                  </table>
-                </div>
-              </section>
-              <section>
-                <h3>Needed Tasks</h3>
-                <div class="report-table-wrap">
-                  <table class="action-report-table">
-                    <thead>
-                      <tr>
-                        <th>Due date</th>
-                        <th>Task</th>
-                        <th>Transaction</th>
-                        <th>Owner</th>
-                      </tr>
-                    </thead>
-                    <tbody id="actionReportTasks"></tbody>
-                  </table>
-                </div>
-              </section>
-            </div>
+            <form class="form-grid" id="movementForm">
+              <label>Date <input name="date" type="date" /></label>
+              <label>Type
+                <select name="type">
+                  <option>Yoga</option>
+                  <option>Treadmill</option>
+                  <option>Vibration plate</option>
+                  <option>Weights</option>
+                  <option>Weight bench</option>
+                  <option>Dog walk</option>
+                  <option>Other movement</option>
+                </select>
+              </label>
+              <label>Minutes <input name="minutes" type="number" min="1" /></label>
+              <label>Intensity
+                <select name="intensity">
+                  <option>Easy</option>
+                  <option>Moderate</option>
+                  <option>Hard</option>
+                </select>
+              </label>
+              <label class="wide">Notes <input name="notes" placeholder="How did it feel?" /></label>
+              <button class="primary-button" type="submit">Add movement</button>
+            </form>
           </section>
-          <section class="panel action-report-panel" id="pipelineFollowUpReport">
+          <section class="panel">
             <div class="panel-header">
               <div>
-                <span class="eyebrow">Pipeline</span>
-                <h2>Pipeline Follow-Up Report</h2>
-                <p>Future listings and active buyers sorted by next follow-up and hot-to-cold priority</p>
+                <span class="eyebrow">Log</span>
+                <h2>Recent movement</h2>
               </div>
             </div>
-            <div class="action-report-summary" id="pipelineReportSummary"></div>
-            <div class="report-table-wrap">
-              <table class="action-report-table">
-                <thead>
-                  <tr>
-                    <th>Follow-up</th>
-                    <th>Priority</th>
-                    <th>Type</th>
-                    <th>Client</th>
-                    <th>Location</th>
-                    <th>Next action</th>
-                  </tr>
-                </thead>
-                <tbody id="pipelineFollowUpRows"></tbody>
-              </table>
-            </div>
-          </section>
-          <section class="panel action-report-panel" id="listingMapReport">
-            <div class="panel-header">
-              <div>
-                <span class="eyebrow">Map</span>
-                <h2>Listing Map</h2>
-                <p>Map active, pending, new, and future listing addresses</p>
-              </div>
-              <a class="ghost-button map-open-link" id="openListingMapLink" href="https://www.google.com/maps" target="_blank" rel="noreferrer">Open in Google Maps</a>
-            </div>
-            <div class="listing-map-layout">
-              <div class="listing-map-list" id="listingMapList"></div>
-              <iframe class="listing-map-frame" id="listingMapFrame" title="Listing map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <div class="table-list" id="movementLog"></div>
           </section>
         </section>
-      </main>
-    </div>
 
-    <dialog class="detail-dialog" id="transactionDialog">
-      <article class="detail-panel">
-        <button class="icon-button close-button" type="button" id="closeDialog" aria-label="Close">x</button>
-        <div class="detail-hero">
-          <div>
-            <span class="status-pill" id="detailStatus"></span>
-            <h2 id="detailTitle"></h2>
-            <p id="detailSubtitle"></p>
-            <p class="detail-updated" id="detailUpdated"></p>
-          </div>
-          <div class="detail-actions">
-            <button class="primary-button prepare-email-button" type="button" id="prepareEmailButton">
-              <svg class="icon" aria-hidden="true"><use href="#icon-contacts"></use></svg>
-              Prepare email
-            </button>
-            <button class="sticky-add-button" type="button" id="addStickyNoteButton">Add sticky note</button>
-            <div class="settlement-card">
-              <span>Settlement</span>
-              <strong id="detailSettlement"></strong>
-            </div>
-          </div>
-        </div>
-
-        <section class="sticky-note-panel" id="stickyNotePanel"></section>
-
-        <div class="detail-tabs" aria-label="Transaction sections">
-          <button class="detail-tab active" type="button" data-detail-tab="dates">Dates</button>
-          <button class="detail-tab" type="button" data-detail-tab="checklist">Checklist</button>
-          <button class="detail-tab" type="button" data-detail-tab="contacts">Contacts</button>
-          <button class="detail-tab" type="button" data-detail-tab="sale">Sale / Contract</button>
-          <button class="detail-tab" type="button" data-detail-tab="notes">Notes</button>
-          <button class="detail-tab" type="button" data-detail-tab="postClosing" id="postClosingTabButton">Post-closing</button>
-        </div>
-
-        <div class="detail-grid">
-          <section data-detail-section="notes">
-            <h3>Transaction Info</h3>
-            <form class="info-card" id="transactionInfoForm">
-              <label>Client name <input name="client" required /></label>
-              <label>Property address <input name="address" required /></label>
-            </form>
-          </section>
-          <section class="wide-detail-section" data-detail-section="dates">
-            <form class="status-card" id="transactionStatusForm">
-              <label>Status
-                <select name="status">
-                  <option>Under contract</option>
-                  <option>Inspection period</option>
-                  <option>Financing</option>
-                  <option>Clear to close</option>
-                  <option>Closed</option>
-                  <option>Failed</option>
-                </select>
-              </label>
-            </form>
-            <div class="transaction-action-card">
-              <div>
-                <h3>Transaction Status Actions</h3>
-                <p>Use these when the listing or sale changes stage.</p>
-              </div>
-              <div class="transaction-action-buttons">
-                <button class="ghost-button" type="button" id="convertToPendingButton" hidden>Convert to pending</button>
-                <button class="ghost-button" type="button" id="markClosedButton">Mark closed</button>
-                <button class="ghost-button danger-button" type="button" id="markFailedButton">Mark failed</button>
-              </div>
-            </div>
-            <div class="detail-section-header">
-              <h3 id="detailDeadlineTitle">Contract Deadlines</h3>
-              <div class="workflow-toggle" id="workflowToggle" hidden>
-                <button class="workflow-button active" type="button" data-workflow="listing">Listing prep</button>
-                <button class="workflow-button" type="button" data-workflow="contract">Under contract</button>
-              </div>
-            </div>
-            <div class="calendar-actions">
-              <button class="ghost-button" type="button" id="connectGoogleButton">Connect Google Calendar</button>
-              <button class="ghost-button" type="button" id="syncGoogleButton">Sync dates to Google</button>
-              <span id="googleCalendarStatus">Not connected</span>
-            </div>
-            <div id="detailDeadlines" class="contract-deadline-grid"></div>
-            <form class="custom-deadline-form" id="customDeadlineForm">
-              <input name="deadlineName" placeholder="Add deadline name" />
-              <input name="deadlineDate" type="date" />
-              <button class="ghost-button" type="submit">Add date</button>
-            </form>
-          </section>
-          <section data-detail-section="checklist">
-            <h3 id="detailChecklistTitle">Checklist</h3>
-            <div id="detailTasks" class="task-list"></div>
-            <form class="custom-task-form" id="customTaskForm">
-              <input name="taskName" placeholder="Add task" />
-              <select name="taskOwner">
-                <option>Agent</option>
-                <option>Lisa</option>
-                <option>Assistant</option>
-                <option>Client</option>
-                <option>Lender</option>
-                <option>Title</option>
-                <option>Co-op agent</option>
-              </select>
-              <input name="taskDueDate" type="date" />
-              <button class="ghost-button" type="submit">Add task</button>
-            </form>
-          </section>
-          <section data-detail-section="notes">
-            <h3>Referral</h3>
-            <form class="referral-card" id="referralForm">
-              <label class="checkbox-line">
-                <input name="isReferral" type="checkbox" />
-                Is this a referral?
-              </label>
-              <div class="form-grid">
-                <label>Referral fee <input name="referralFee" placeholder="$0 or 25%" /></label>
-                <label>Paid to <input name="referralPaidTo" placeholder="Agent or brokerage" /></label>
-              </div>
-            </form>
-          </section>
-          <section data-detail-section="sale">
-            <h3>Sale, Settlement & Contract Details</h3>
-            <form class="finance-card" id="financeForm">
-              <div class="form-grid">
-                <label>Sale price <input name="salePrice" inputmode="decimal" placeholder="$0" /></label>
-                <label>Commission % <input name="commissionPercent" inputmode="decimal" placeholder="3" /></label>
-              </div>
-              <div class="finance-total">
-                <span>Commission</span>
-                <strong id="detailCommissionTotal">$0</strong>
-              </div>
-              <div class="contract-subsection">
-                <h4>Lockbox</h4>
-                <div class="form-grid">
-                  <label>Lockbox type
-                    <select name="lockboxType">
-                      <option value="">Not entered</option>
-                      <option>Supra lockbox</option>
-                      <option>Combo lockbox</option>
-                      <option>Other</option>
-                    </select>
-                  </label>
-                  <label>Shackle / combo code <input name="lockboxCode" placeholder="Shackle code or combo" /></label>
-                  <label>Lockbox location <input name="lockboxLocation" placeholder="Front door, railing, side door..." /></label>
-                  <label>Lockbox notes <input name="lockboxNotes" placeholder="Showing instructions or access notes" /></label>
-                  <label>Alarm code <input name="alarmCode" placeholder="Alarm code, if applicable" /></label>
-                  <label>Alarm / access instructions <textarea name="alarmInstructions" placeholder="Alarm panel location, entry instructions, special access notes..."></textarea></label>
+        <section class="view" id="mindsetView">
+          <section class="dashboard-grid">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Mindset</span>
+                  <h2>Feelings check-in</h2>
                 </div>
               </div>
-              <div class="contract-subsection">
-                <h4>Title & settlement</h4>
-                <div class="form-grid">
-                  <label>Title company <input name="titleCompany" placeholder="Title company" /></label>
-                  <label>Title contact name <input name="titleContactName" placeholder="Contact name" /></label>
-                  <label>Title contact phone <input name="titleContactPhone" placeholder="Phone" /></label>
-                  <label>Title contact email <input name="titleContactEmail" placeholder="Email" /></label>
-                </div>
-              </div>
-              <div class="contract-subsection">
-                <h4>Lender</h4>
-                <div class="form-grid">
-                  <label>Lender company <input name="lenderCompany" placeholder="Lender company" /></label>
-                  <label>Lender contact name <input name="lenderContactName" placeholder="Contact name" /></label>
-                  <label>Lender phone <input name="lenderPhone" placeholder="Phone" /></label>
-                  <label>Lender email <input name="lenderEmail" placeholder="Email" /></label>
-                </div>
-              </div>
-              <div class="form-grid">
-                <label>Settlement date <input name="settlementDate" type="date" /></label>
-                <label>Settlement time <input name="settlementTime" type="time" /></label>
-                <label>Settlement location <input name="settlementLocation" placeholder="Title company, office, or address" /></label>
-                <label>Final walk-through date <input name="walkThroughDate" type="date" /></label>
-                <label>Final walk-through time <input name="walkThroughTime" type="time" /></label>
-              </div>
-              <div class="contract-subsection">
-                <h4>HOA / resale package</h4>
-                <label>HOA / resale applies?
-                  <select name="hoaApplies" id="hoaAppliesSelect">
-                    <option value="yes">Yes</option>
-                    <option value="na">N/A</option>
+              <form class="form-grid" id="mindsetForm">
+                <label>Date <input name="date" type="date" /></label>
+                <label>Anxiety
+                  <select name="anxiety">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
                   </select>
                 </label>
-                <div class="form-grid" id="hoaFields">
-                  <label>HOA / management company <input name="hoaCompany" placeholder="HOA or management company" /></label>
-                  <label>HOA contact name <input name="hoaContactName" placeholder="Contact name" /></label>
-                  <label>HOA phone <input name="hoaPhone" placeholder="Phone" /></label>
-                  <label>HOA email <input name="hoaEmail" placeholder="Email" /></label>
-                  <label>Where to order resale package <input name="resaleOrderFrom" placeholder="Website, email, portal, or company" /></label>
-                  <label>Resale package ordered date <input name="resaleOrderedDate" type="date" /></label>
-                  <label>Resale package expected date <input name="resaleExpectedDate" type="date" /></label>
-                  <label>HOA / resale notes <textarea name="hoaNotes" placeholder="Fees, login notes, instructions, confirmation number..."></textarea></label>
-                </div>
-              </div>
-              <div class="form-grid">
-                <label>Earnest money amount <input name="earnestMoneyAmount" inputmode="decimal" placeholder="$5,000" /></label>
-                <label>Listing broker name <input name="listingBrokerName" placeholder="RE/MAX Pinnacle" /></label>
-                <label>Listing agent name <input name="listingAgentName" placeholder="Agent on the listing side" /></label>
-                <label>Buyer agent name <input name="buyerAgentName" placeholder="Agent representing the buyer" /></label>
-              </div>
-              <div class="contract-subsection">
-                <h4>Inspection / due diligence</h4>
-                <div class="form-grid">
-                  <label>Due diligence period <input name="dueDiligenceDays" inputmode="numeric" placeholder="10 days" /></label>
-                  <label>Elected inspections <textarea name="electedInspections" placeholder="Home inspection, termite, radon, septic, well, roof, chimney..."></textarea></label>
-                </div>
-              </div>
-              <div class="contract-subsection">
-                <h4>Pre/Post-Settlement Possession</h4>
-                <label>Possession agreement
-                  <select name="possessionType" id="possessionTypeSelect">
-                    <option value="na">N/A</option>
-                    <option value="pre">Pre-settlement possession</option>
-                    <option value="post">Post-settlement possession</option>
+                <label>Craving / urge to eat feelings
+                  <select name="craving">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
                   </select>
                 </label>
-                <div class="form-grid" id="possessionFields">
-                  <label data-possession-field="pre">Pre-settlement possession start date <input name="preSettlementPossessionStartDate" type="date" /></label>
-                  <label data-possession-field="post">Post-settlement possession end date <input name="postSettlementPossessionEndDate" type="date" /></label>
-                  <label>Possession deposit <input name="possessionDeposit" inputmode="decimal" placeholder="$0" /></label>
-                  <label>Rate type
-                    <select name="possessionRateType">
-                      <option value="">Not entered</option>
-                      <option>Daily rate</option>
-                      <option>Flat rate</option>
-                    </select>
-                  </label>
-                  <label>Rate amount <input name="possessionRateAmount" inputmode="decimal" placeholder="$0" /></label>
-                </div>
-              </div>
-              <div class="contract-terms-fields">
-                <label>Included with sale <textarea name="inclusions" placeholder="Appliances, fixtures, window treatments, washer/dryer..."></textarea></label>
-                <label>Excluded from sale <textarea name="exclusions" placeholder="Items excluded by the contract or seller..."></textarea></label>
-              </div>
-            </form>
-          </section>
-          <section id="postClosingSection" data-detail-section="postClosing" hidden>
-            <h3>Post-Closing Checklist</h3>
-            <div id="detailPostClosingTasks" class="task-list"></div>
-          </section>
-          <section data-detail-section="contacts">
-            <h3>Contacts</h3>
-            <form class="contact-edit-card" id="detailContactsForm">
-              <div id="detailContacts" class="contact-edit-list"></div>
-              <button class="ghost-button" type="button" id="addContactButton">Add contact</button>
-            </form>
-          </section>
-          <section data-detail-section="notes">
-            <h3>Documents</h3>
-            <div id="detailDocs" class="mini-list"></div>
-          </section>
-          <section data-detail-section="notes">
-            <h3>Notes</h3>
-            <div class="note-log" id="detailNotes"></div>
-            <form class="note-entry-form" id="noteEntryForm">
-              <label>Note type
-                <select name="noteType">
-                  <option>General note</option>
-                  <option>Call</option>
-                  <option>Decision</option>
-                  <option>Loose end</option>
-                  <option>Client update</option>
-                  <option>Partner update</option>
-                </select>
-              </label>
-              <label class="checkbox-line">
-                <input name="makeStickyNote" type="checkbox" />
-                Pin as yellow sticky loose end
-              </label>
-              <label>Add note <textarea name="noteText" placeholder="Add a dated note for this transaction..."></textarea></label>
-              <button class="ghost-button" type="submit">Add dated note</button>
-            </form>
-          </section>
-          <section data-detail-section="notes">
-            <h3>Client Follow-Up</h3>
-            <form class="follow-up-card" id="followUpForm">
-              <div class="form-grid">
-                <label>Last update sent <input name="lastUpdateDate" type="date" /></label>
-                <label>Next update due <input name="nextUpdateDate" type="date" /></label>
-                <label>Frequency
-                  <select name="frequency">
-                    <option>Weekly</option>
-                    <option>Twice weekly</option>
-                    <option>Every 3-4 days</option>
-                    <option>Milestone only</option>
-                    <option>Custom</option>
-                  </select>
-                </label>
-                <label>Preferred method
-                  <select name="method">
-                    <option>Email</option>
-                    <option>Call</option>
-                    <option>Text</option>
-                    <option>Any</option>
-                  </select>
-                </label>
-                <label>Client temperature
-                  <select name="temperature">
-                    <option>Calm</option>
-                    <option>Needs attention</option>
+                <label>Feeling
+                  <select name="feeling">
                     <option>Anxious</option>
-                    <option>Urgent</option>
+                    <option>Overwhelmed</option>
+                    <option>Sad</option>
+                    <option>Frustrated</option>
+                    <option>Tired</option>
+                    <option>Lonely</option>
+                    <option>Bored</option>
+                    <option>Calm</option>
                   </select>
                 </label>
+                <label class="wide">What triggered it? <input name="trigger" placeholder="Work, conflict, fatigue, hunger, uncertainty..." /></label>
+                <label class="wide">What can I try for 10 minutes? <input name="tool" placeholder="Walk, tea, shower, breathe, text someone, journal..." /></label>
+                <label class="wide">Kind note to myself <input name="note" placeholder="This is a feeling. I can care for myself without perfection." /></label>
+                <button class="primary-button" type="submit">Save check-in</button>
+              </form>
+            </article>
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Reset menu</span>
+                  <h2>Small options before snacking</h2>
+                </div>
               </div>
-              <label>Follow-up note <textarea name="note" placeholder="What was shared last, or what should be covered next?"></textarea></label>
-              <div class="follow-up-actions">
-                <button class="ghost-button" type="button" id="markUpdateSentButton">Mark update sent today</button>
+              <div class="reset-list" id="mindsetResetList"></div>
+            </article>
+            <article class="panel wide-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Log</span>
+                  <h2>Recent check-ins</h2>
+                </div>
               </div>
-            </form>
+              <div class="table-list" id="mindsetLog"></div>
+            </article>
           </section>
-          <section data-detail-section="notes">
-            <div class="danger-zone">
-              <div>
-                <h3>Remove Transaction</h3>
-                <p>Delete this only if it was entered by mistake.</p>
-              </div>
-              <button class="ghost-button danger-button" type="button" id="deleteTransactionButton">Delete transaction</button>
-            </div>
-          </section>
-        </div>
-      </article>
-    </dialog>
-
-    <dialog class="detail-dialog" id="emailDraftDialog">
-      <article class="detail-panel email-draft-panel">
-        <button class="icon-button close-button" type="button" id="closeEmailDraft" aria-label="Close">x</button>
-        <div class="detail-hero">
-          <div>
-            <span class="eyebrow">Client update</span>
-            <h2>Email Draft</h2>
-            <p id="emailDraftTo"></p>
-          </div>
-          <div class="detail-actions">
-            <button class="ghost-button" type="button" id="copyEmailDraftButton">Copy draft</button>
-            <button class="primary-button" type="button" id="openEmailDraftButton">Open email app</button>
-          </div>
-        </div>
-        <label class="email-field" id="emailDraftTypeField">
-          Email type
-          <select id="emailDraftType"></select>
-        </label>
-        <label class="email-field">
-          Subject
-          <input id="emailDraftSubject" />
-        </label>
-        <label class="email-field">
-          Message
-          <textarea id="emailDraftBody" rows="16"></textarea>
-        </label>
-      </article>
-    </dialog>
-
-    <dialog class="detail-dialog" id="newTransactionDialog">
-      <form class="detail-panel form-panel" method="dialog" id="newTransactionForm">
-        <button class="icon-button close-button" type="button" id="closeNewDialog" aria-label="Close">x</button>
-        <div>
-          <span class="eyebrow">Quick add</span>
-          <h2>New Transaction</h2>
-        </div>
-        <div class="form-grid">
-          <label>Client name <input name="client" required placeholder="Lisa Buyer" /></label>
-          <label>Property address <input name="address" required placeholder="123 Main Street" /></label>
-          <label>Side
-            <select name="side">
-              <option>Buyer</option>
-              <option>Listing</option>
-            </select>
-          </label>
-          <label>Status
-            <select name="status">
-              <option>Under contract</option>
-              <option>Inspection period</option>
-              <option>Financing</option>
-              <option>Clear to close</option>
-              <option>Closed</option>
-              <option>Failed</option>
-            </select>
-          </label>
-        </div>
-        <div class="form-section">
-          <h3>Referral</h3>
-          <label class="checkbox-line">
-            <input name="isReferral" type="checkbox" />
-            Is this a referral?
-          </label>
-          <div class="form-grid">
-            <label>Referral fee <input name="referralFee" placeholder="$0 or 25%" /></label>
-            <label>Paid to <input name="referralPaidTo" placeholder="Agent or brokerage" /></label>
-          </div>
-        </div>
-        <div class="form-section">
-          <h3>Sale & Commission</h3>
-          <div class="form-grid">
-            <label>Sale price <input name="salePrice" inputmode="decimal" placeholder="$0" /></label>
-            <label>Commission % <input name="commissionPercent" inputmode="decimal" placeholder="3" /></label>
-          </div>
-        </div>
-        <div class="form-section" id="listingDateFields">
-          <h3>Listing prep dates</h3>
-          <div class="form-grid">
-            <div class="date-na-field">
-              <label>Staging scheduled <input name="staging" type="date" /></label>
-              <label class="na-toggle"><input name="stagingNa" type="checkbox" data-na-for="staging" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Photos/video scheduled <input name="photos" type="date" /></label>
-              <label class="na-toggle"><input name="photosNa" type="checkbox" data-na-for="photos" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Listing doc review date <input name="docReview" type="date" /></label>
-              <label class="na-toggle"><input name="docReviewNa" type="checkbox" data-na-for="docReview" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Coming soon date <input name="comingSoon" type="date" /></label>
-              <label class="na-toggle"><input name="comingSoonNa" type="checkbox" data-na-for="comingSoon" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Active launch date <input name="activeLaunch" type="date" /></label>
-              <label class="na-toggle"><input name="activeLaunchNa" type="checkbox" data-na-for="activeLaunch" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Open House <input name="openHouse" type="date" /></label>
-              <label class="na-toggle"><input name="openHouseNa" type="checkbox" data-na-for="openHouse" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Home warranty ordered <input name="homeWarranty" type="date" /></label>
-              <label class="na-toggle"><input name="homeWarrantyNa" type="checkbox" data-na-for="homeWarranty" /> N/A</label>
-            </div>
-            <div class="date-na-field">
-              <label>Target settlement date <input name="targetSettlement" type="date" /></label>
-              <label class="na-toggle"><input name="targetSettlementNa" type="checkbox" data-na-for="targetSettlement" /> N/A</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-section" id="contractDateFields">
-          <h3>Under contract dates</h3>
-          <div class="form-grid">
-            <label>Earnest money deposit due <input name="earnest" type="date" /></label>
-            <div class="date-na-field">
-              <label>Inspection contingency ends <input name="inspection" type="date" /></label>
-              <label class="na-toggle"><input name="inspectionNa" type="checkbox" data-na-for="inspection" /> N/A</label>
-            </div>
-            <label>Mortgage application due <input name="mortgageApplication" type="date" /></label>
-            <label>Mortgage commitment due <input name="mortgageCommitment" type="date" /></label>
-            <label>Settlement date <input name="settlement" type="date" /></label>
-          </div>
-        </div>
-        <label>Notes <textarea name="notes" placeholder="Client concerns, repair notes, next update..."></textarea></label>
-        <button class="primary-button" type="submit">Add transaction</button>
-      </form>
-    </dialog>
-
-    <dialog class="detail-dialog" id="pipelineDialog">
-      <form class="detail-panel form-panel" method="dialog" id="pipelineForm">
-        <button class="icon-button close-button" type="button" id="closePipelineDialog" aria-label="Close">x</button>
-        <div class="pipeline-dialog-header">
-          <div>
-            <span class="eyebrow">Pipeline</span>
-            <h2 id="pipelineDialogTitle">Add Pipeline Item</h2>
-          </div>
-          <button class="sticky-add-button" type="button" id="addPipelineStickyNoteButton">Add sticky note</button>
-        </div>
-        <input name="pipelineId" type="hidden" />
-        <section class="sticky-note-panel pipeline-sticky-note-panel" id="pipelineStickyNotePanel"></section>
-        <div class="form-grid">
-          <label>Pipeline type
-            <select name="type">
-              <option value="listing">Future Listing</option>
-              <option value="buyer">Active Buyer</option>
-            </select>
-          </label>
-          <label>Stage
-            <select name="stage">
-              <option>Conversation</option>
-              <option>Valuation</option>
-              <option>Appointment set</option>
-              <option>Likely listing</option>
-              <option>Documents sent</option>
-              <option>Active search</option>
-              <option>Pre-approved</option>
-              <option>Touring</option>
-              <option>Writing offer</option>
-            </select>
-          </label>
-          <label>Client name <input name="client" required placeholder="Client name" /></label>
-          <label>Property address / buying area <input name="location" placeholder="Address or target area" /></label>
-          <label>Target price / price range <input name="price" placeholder="$500,000 or $450K-$550K" /></label>
-          <label>Likely timing <input name="timing" placeholder="Spring, 60-90 days, ASAP..." /></label>
-          <label>Next follow-up date <input name="nextFollowUpDate" type="date" /></label>
-          <label>Probability
-            <select name="probability">
-              <option>Hot</option>
-              <option>Warm</option>
-              <option>Long-term</option>
-              <option>Uncertain</option>
-            </select>
-          </label>
-        </div>
-        <label>Next action <input name="nextAction" placeholder="Schedule CMA, send homes, follow up..." /></label>
-        <label>Notes <textarea name="notes" placeholder="Motivation, must-haves, prep needed, source, concerns..."></textarea></label>
-        <section class="pipeline-notes-section">
-          <h3>Update Log</h3>
-          <div class="note-log" id="pipelineNotes"></div>
-          <div class="note-entry-form">
-            <label>Note type
-              <select name="pipelineNoteType">
-                <option>General note</option>
-                <option>Call</option>
-                <option>Decision</option>
-                <option>Loose end</option>
-                <option>Client update</option>
-                <option>Partner update</option>
-              </select>
-            </label>
-            <label>Add update <textarea name="pipelineNoteText" placeholder="Add a time-stamped note for this pipeline item..."></textarea></label>
-            <button class="ghost-button" type="button" id="addPipelineNoteButton">Add update</button>
-          </div>
         </section>
-        <button class="primary-button" type="submit">Save pipeline item</button>
-      </form>
-    </dialog>
 
-    <dialog class="detail-dialog" id="settingsDialog">
-      <article class="detail-panel email-draft-panel">
-        <button class="icon-button close-button" type="button" id="closeSettingsDialog" aria-label="Close">x</button>
-        <div class="detail-hero">
-          <div>
-            <span class="eyebrow">Settings</span>
-            <h2>Data tools</h2>
-            <p>Use these only when setting up or resetting the prototype.</p>
-          </div>
-        </div>
-        <div class="settings-section">
-          <div>
-            <span class="eyebrow">Backups</span>
-            <h3>Export and import data</h3>
-            <p>Use these when saving a backup, moving data, or downloading a copy of this workspace.</p>
-          </div>
-          <div class="settings-actions">
-            <button class="ghost-button" type="button" id="exportDataButton"><svg class="icon" aria-hidden="true"><use href="#icon-export"></use></svg>Export backup</button>
-            <label class="ghost-button import-button">
-              <svg class="icon" aria-hidden="true"><use href="#icon-import"></use></svg>
-              Import backup
-              <input id="importDataInput" type="file" accept="application/json,.json" />
-            </label>
-            <button class="ghost-button" type="button" id="cloudBackupButton">Cloud backup</button>
-          </div>
-        </div>
-        <div class="danger-zone">
-          <div>
-            <strong>Clear all data</strong>
-            <p>Removes all transactions from this browser and this workspace after confirmation.</p>
-          </div>
-          <button class="ghost-button danger-button" type="button" id="clearAllButton">Clear all data</button>
-        </div>
-      </article>
-    </dialog>
+        <section class="view" id="rewardsView">
+          <section class="dashboard-grid">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Rewards</span>
+                  <h2>Cash in fun dollars</h2>
+                </div>
+              </div>
+              <form class="form-grid" id="rewardForm">
+                <label>Reward <input name="name" placeholder="Pedicure, book, flowers..." /></label>
+                <label>Cost <input name="cost" type="number" min="1" placeholder="Fun dollars" /></label>
+                <button class="primary-button" type="submit">Add reward</button>
+              </form>
+              <div class="reward-list" id="rewardList"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Earning guide</span>
+                  <h2>How dollars add up</h2>
+                </div>
+              </div>
+              <div class="earning-list" id="earningGuide"></div>
+            </article>
+          </section>
+        </section>
+
+        <section class="view" id="progressView">
+          <section class="dashboard-grid">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Progress</span>
+                  <h2>Clothes-fit check-in</h2>
+                </div>
+              </div>
+              <form class="form-grid" id="fitForm">
+                <input name="date" type="date" />
+                <select name="fit">
+                  <option>Comfortable</option>
+                  <option>A little snug</option>
+                  <option>Snug</option>
+                  <option>Looser</option>
+                  <option>Noticing progress</option>
+                </select>
+                <label class="wide">Notes <input name="notes" placeholder="Jeans fit, waistband, energy, bloating, confidence..." /></label>
+                <button class="primary-button" type="submit">Log fit check</button>
+              </form>
+              <div class="chart" id="fitChart"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Week</span>
+                  <h2>What’s working</h2>
+                </div>
+              </div>
+              <div class="stat-grid" id="weeklyStats"></div>
+            </article>
+            <article class="panel wide-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Reflection</span>
+                  <h2>Weekly note</h2>
+                </div>
+              </div>
+              <textarea id="weeklyNote" placeholder="What helped this week? What made it harder? What would make next week easier?"></textarea>
+            </article>
+          </section>
+        </section>
+      </section>
+    </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="app.js?v=80"></script>
+    <script src="app.js?v=9"></script>
   </body>
 </html>

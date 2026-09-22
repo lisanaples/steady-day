@@ -1,26 +1,17 @@
 {
-  "name": "Closing Desk",
-  "short_name": "Closing Desk",
-  "description": "A transaction dashboard for real estate closings, deadlines, checklists, contacts, and sale tracking.",
-  "start_url": "/",
-  "scope": "/",
+  "name": "Steady Day",
+  "short_name": "Steady Day",
+  "description": "A personal meal, movement, blood-sugar habit, and rewards planner.",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#eef3f1",
-  "theme_color": "#123849",
-  "orientation": "portrait-primary",
+  "background_color": "#fbf7ff",
+  "theme_color": "#7c3aed",
   "icons": [
     {
-      "src": "assets/app-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/app-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "assets/steady-day-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ],
-  "categories": ["business", "productivity"]
+  ]
 }
